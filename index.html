@@ -1,30 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For You 💖</title>
+
 <style>
 body {
   text-align: center;
-  font-family: 'Arial', sans-serif;
+  font-family: Arial, sans-serif;
   background: linear-gradient(to right, #ffe6f0, #fff0f5);
   height: 100vh;
   margin: 0;
-  padding-top: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
 }
 
 h1 {
   color: #ff4d88;
+  font-size: 32px;
+  padding: 20px;
 }
 
 button {
   padding: 15px 35px;
-  font-size: 18px;
+  font-size: 20px;
   border: none;
-  border-radius: 25px;
-  margin: 20px;
+  border-radius: 30px;
+  margin: 15px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: transform 0.2s ease;
 }
 
 #yesBtn {
@@ -32,7 +39,7 @@ button {
   color: white;
 }
 
-#yesBtn:hover {
+#yesBtn:active {
   transform: scale(1.1);
 }
 
@@ -42,22 +49,33 @@ button {
 }
 </style>
 </head>
+
 <body>
 
+<h1>Thankyou soooo much my love 🥰 </h1>
 <h1>Will you be my Valentine? 💗</h1>
 
-<button id="yesBtn" onclick="alert('You just made me the happiest person alive 🥰💖')">YES 💕</button>
+<button id="yesBtn">YES 💕</button>
 <button id="noBtn">NO 😢</button>
 
 <script>
 const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
 
-noBtn.addEventListener("mouseover", function() {
-  const randomX = Math.random() * (window.innerWidth - 100);
-  const randomY = Math.random() * (window.innerHeight - 50);
-  noBtn.style.left = randomX + "px";
-  noBtn.style.top = randomY + "px";
+yesBtn.addEventListener("click", function() {
+  alert("You just made me the happiest person alive 🥰💖");
 });
+
+function moveButton() {
+  const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+  const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+}
+
+// Works for mouse AND touch
+noBtn.addEventListener("mouseover", moveButton);
+noBtn.addEventListener("touchstart", moveButton);
 </script>
 
 </body>
