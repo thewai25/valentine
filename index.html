@@ -47,24 +47,31 @@ button {
   background-color: #cccccc;
   position: absolute;
 }
+
+#success {
+  display: none;
+  font-size: 28px;
+  color: #ff4d88;
+}
 </style>
 </head>
 
 <body>
 
-<h1>Thankyou soooo much my love 🥰 </h1>
-<h1>Will you be my Valentine? 💗</h1>
+<h1 id="question">Will you be my Valentine? 💗</h1>
 
 <button id="yesBtn">YES 💕</button>
 <button id="noBtn">NO 😢</button>
 
+<div id="success">YAYYYY 🥰💖 You just made me the happiest person alive!</div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
 <script>
 const noBtn = document.getElementById("noBtn");
 const yesBtn = document.getElementById("yesBtn");
-
-yesBtn.addEventListener("click", function() {
-  alert("You just made me the happiest person alive 🥰💖");
-});
+const question = document.getElementById("question");
+const success = document.getElementById("success");
 
 function moveButton() {
   const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
@@ -73,9 +80,26 @@ function moveButton() {
   noBtn.style.top = y + "px";
 }
 
-// Works for mouse AND touch
 noBtn.addEventListener("mouseover", moveButton);
 noBtn.addEventListener("touchstart", moveButton);
+
+yesBtn.addEventListener("click", function() {
+
+  // Hide original content
+  question.style.display = "none";
+  yesBtn.style.display = "none";
+  noBtn.style.display = "none";
+
+  // Show success message
+  success.style.display = "block";
+
+  // Fire confetti
+  confetti({
+    particleCount: 200,
+    spread: 100,
+    origin: { y: 0.6 }
+  });
+});
 </script>
 
 </body>
