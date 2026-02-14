@@ -71,10 +71,22 @@ button {
 }
 
 @keyframes floatUp {
-  0% { transform: translateY(100vh); opacity: 0; }
-  50% { opacity: 1; }
-  100% { transform: translateY(-10vh); opacity: 0; }
+  0% { 
+    transform: translateY(100vh); 
+    opacity: 0; 
+  }
+  20% { 
+    opacity: 1; 
+  }
+  80% { 
+    opacity: 1; 
+  }
+  100% { 
+    transform: translateY(-30vh); 
+    opacity: 0; 
+  }
 }
+
 </style>
 </head>
 
@@ -139,7 +151,8 @@ for (let i = 0; i < 20; i++) {
   span.classList.add("floating");
   span.innerText = emojis[Math.floor(Math.random() * emojis.length)];
   span.style.left = Math.random() * 100 + "vw";
-  span.style.animationDuration = (5 + Math.random() * 5) + "s";
+  span.style.fontSize = (20 + Math.random() * 20) + "px";
+  span.style.animationDuration = (10 + Math.random() * 6) + "s";
   document.body.appendChild(span);
 }
 </script>
