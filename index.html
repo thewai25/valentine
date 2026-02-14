@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For You 💖</title>
+<style>
+body {
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to right, #ffe6f0, #fff0f5);
+  height: 100vh;
+  margin: 0;
+  padding-top: 150px;
+  overflow: hidden;
+}
+
+h1 {
+  color: #ff4d88;
+}
+
+button {
+  padding: 15px 35px;
+  font-size: 18px;
+  border: none;
+  border-radius: 25px;
+  margin: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#yesBtn {
+  background-color: #ff4d88;
+  color: white;
+}
+
+#yesBtn:hover {
+  transform: scale(1.1);
+}
+
+#noBtn {
+  background-color: #cccccc;
+  position: absolute;
+}
+</style>
+</head>
+<body>
+
+<h1>Will you be my Valentine? 💗</h1>
+
+<button id="yesBtn" onclick="alert('You just made me the happiest person alive 🥰💖')">YES 💕</button>
+<button id="noBtn">NO 😢</button>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover", function() {
+  const randomX = Math.random() * (window.innerWidth - 100);
+  const randomY = Math.random() * (window.innerHeight - 50);
+  noBtn.style.left = randomX + "px";
+  noBtn.style.top = randomY + "px";
+});
+</script>
+
+</body>
+</html>
