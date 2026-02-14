@@ -82,8 +82,11 @@ button {
 
 <div class="container">
 
-<h1 id="question">Thankyou my Love😘 , Now tell me </h1>
-<h1 id="question">Will you be my Valentine? 💗</h1>
+<div id="questionBlock">
+  <h1>Thank you my Love 😘 , Now tell me</h1>
+  <h1>Will you be my Valentine? 💗</h1>
+</div>
+
   
 <button id="yesBtn">YES 💕</button>
 <button id="noBtn">NO 😢</button>
@@ -99,7 +102,7 @@ button {
 <script>
 const noBtn = document.getElementById("noBtn");
 const yesBtn = document.getElementById("yesBtn");
-const question = document.getElementById("question");
+const questionBlock = document.getElementById("questionBlock");
 const success = document.getElementById("success");
 const bouquet = document.getElementById("bouquet");
 
@@ -115,7 +118,7 @@ noBtn.addEventListener("touchstart", moveButton);
 
 // YES action
 yesBtn.addEventListener("click", function() {
-  question.style.display = "none";
+  questionBlock.style.display = "none";
   yesBtn.style.display = "none";
   noBtn.style.display = "none";
 
